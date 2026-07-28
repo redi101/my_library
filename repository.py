@@ -43,8 +43,8 @@ class BookRepository:
         book = result.scalars().first()
         if not book:
             return None
-        for key in new_book.model_dump():
-            setattr(book, key, getattr(new_book, key))
+        for key, value in new_book.model_dump().items():
+            setattr(book, key, value)
 
         await session.commit()
         return book

@@ -25,7 +25,7 @@ async def get_book(session: SessionDep, book_id: int):
     book = await BookRepository.get_book(book_id, session)
     if not book:
         raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND, detail="Книга не найдена"
+            status_code=status.HTTP_404_NOT_FOUND, detail="Book not found"
         )
     return book
 
@@ -38,8 +38,7 @@ async def update_book(session: SessionDep, book_id: int, book: SBookAdd):
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND, detail="Book not found"
         )
-    else:
-        return result
+    return result
 
 
 @router_books.delete("/{book_id}", status_code=status.HTTP_204_NO_CONTENT)
