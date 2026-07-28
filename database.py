@@ -3,7 +3,7 @@ from sqlalchemy.orm import DeclarativeBase, MappedAsDataclass
 from typing import Annotated
 from fastapi import Depends
 
-DATABASE_URL = "sqlite+aiosqlite:///library.db"
+DATABASE_URL = "sqlite+aiosqlite:////app/data/library.db"
 
 engine = create_async_engine(DATABASE_URL)
 
